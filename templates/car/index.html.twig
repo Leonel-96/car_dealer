@@ -1,0 +1,135 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Car Dealer!{% endblock %}
+
+{% block body %}
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3">
+           <div class="ms-4 logo">
+                <a class="navbar-brand" href="#">
+                <img src="{{asset('images/DSC_3188ccusa.jpg')}}" alt="Avatar Logo" style="width:40px;" class="rounded-pill">
+                Joas Leonel Sidjou 
+                </a>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end me-4">
+                <ul class="navbar-nav">
+                    <li class="nav-item active"><a class="nav-link" href="#">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Nos modeles</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Achats services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Conseil D'achat</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Notre marque</a></li>
+                </ul>
+            </div>
+            <img class="menu-icon" src="{{asset('images/menu.png')}}" alt="">
+        </nav>
+     <header class="masthead">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-10 align-self-end">
+                    <h1 class="text-uppercase text-white font-weight-bold">Welcome to Car Dealer </h1>
+                    <hr class="divider my-4" />
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <p class="text-white-75 font-weight-light mb-5">A barrier-free world – mapping wheelchair-accessible places for everyone</p>
+                    <a href="" class="btn1">Learn more</a>
+                    <a href="{{path('index')}}" class="btn1">Admin CRUD</a>
+                    <h1>Température actuelle : {{ temperature }}</h1>
+                </div>
+            </div>
+        </div>
+    </header>   
+     <section class="container-fluid">
+      <div class="row justify-content-center">
+          <form action="" class=" col-md-3 sidebar-refurbished-filter">
+                <div class="filter-block-property">
+                    <h4>Brands</h4>
+                    {% for car in pagination %}
+                        <div>
+                            <input type="checkbox" class="checked-option" id="marque1" name="Apple">
+                            <label for="marque1">{{car.name}}</label>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="filter-block-property">
+                    <h4>Categories</h4>
+                </div>
+            
+            </form>
+            <div class="col-md-9 product-refurbish-container">
+                <div class="product-refurbish-card-content">
+                    {% for car in pagination %}
+                    <div class="col-md-3 refurbish-product-card">
+                        <div class="refurbish-card-img">
+                            <div class="carouselContainer">
+                                <img src="img/card1.jpg" alt="" class="slides activate">
+                                <img src="img/card2.jpg" alt="" class="slides ">
+                                <img src="img/card3.jpg" alt="" class="slides ">
+                                <img src="img/card4.jpg" alt="" class="slides ">
+                            </div>
+                            <div class="next-btn" id="next"><i class="fa-solid fa-chevron-right"></i></div>
+                            <div class="prev-btn" id="prev"><i class="fa-solid fa-chevron-left"></i></div>
+                        </div>
+                        <div class="card-second-section">
+                            <div class="refurbish-card-info">
+                                <h4>{{car.name}}</h4>
+                                <p>Numbers of Doors : {{car.nbDoors}}</p>
+                                <p>Numbers of Seats : {{car.nbSeats}}</p>
+                            </div>
+                            <div class="refurbish-card-price">
+                                <div class="card-price-left">
+                                    <h4>Cost :</h4>
+                                    <p>{{car.cost}} &#8364;</p> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>~
+                {% endfor %}  
+            </div>
+      
+            <div class="pagination">
+            {{knp_pagination_render(pagination)}}
+            </div>
+        </div>
+      </div>
+    </section>
+     <section class="overlay"></section>
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-item">
+                <h3>A propos</h3>
+                <p>Hey, je suis ingenieur en expertise informatique et Système d'information.
+                    Etudiant en fin année de Master d'Expertise informatique et système d'information Dev( Big Data), 
+                    j’ambitionne de mettre mes compétences au service d’une entreprise à la culture innovante, 
+                    enthousiaste et audacieuse. Grâce à un parcours de formation approfondi et à une somme d’expériences 
+                    professionnelles performante,je suis devenu expert dans la conception et l’adaptation de sites et d’applications 
+                    web.
+                </p>
+                <div>
+                    <a href="https://www.linkedin.com/in/joas-leonel-sidjou-ngandjouong-9326081ab/"><i class="fa fa-linkedin-square i-resize" aria-hidden="true"></i></a>
+                    <a href=""><i class="fa fa-instagram i-resize" aria-hidden="true"></i></a>
+                    <a href=""><i class="fa fa-facebook-square" aria-hidden="true"></i></i></a>
+                </div>
+                
+            </div>
+            <div class="footer-item">
+                <h3>Mes services</h3>
+                <p>Dévéloppement des sites web</p>
+                <p>Dévéloppement d'application web et mobiles</p>
+                <p>Conception de maquettes UX Design</p>
+                <p>Maintenance de système d'information</p>
+            </div>
+            <div class="footer-item">
+                <h3>Mon entreprise</h3>
+                <p></p>
+                <p></p>
+                <p></p>
+            </div>
+            <div class="footer-item">
+                <h3>Mes adresses</h3>
+                <p>Sidjouleonel@gmail.com</p>
+                <p>joas89@yahoo.fr</p>
+                <p>+33641004182</p>
+            </div>
+        </div>
+        <h5>&copy; Copyright Sidjou Joas Leonel Logic Technology  All right reserved, 91230 Montgeron</h5>
+    </footer>
+{% endblock %}

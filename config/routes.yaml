@@ -1,3 +1,7 @@
+app:
+    path: /
+    controller: App\Controller\CarController::index
+
 controllers:
     resource: ../src/Controller/
     type: annotation
